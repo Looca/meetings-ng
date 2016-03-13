@@ -1,5 +1,5 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase'])
-  .constant('FIREBASE_URL', 'https://boiling-torch-4677.firebaseio.com/');
+  .constant('FIREBASE_URL', 'https://meetings-ng.firebaseio.com/');
 
 
 myApp.run(['$rootScope', '$location', function($rootScope, $location){
@@ -21,9 +21,13 @@ myApp.config(['$routeProvider', function($routeProvider){
       templateUrl: 'views/register.html',
       controller: 'RegistrationController'
     }).
-    when('/success', {
-      templateUrl: 'views/success.html',
-      controller: 'SuccessController',
+    when('/checkins/:uId/:mId', {
+      templateUrl: 'views/checkins.html',
+      controller: 'CheckinsController'
+    }).
+    when('/meetings', {
+      templateUrl: 'views/meetings.html',
+      controller: 'MeetingsController',
       resolve: {
         currentAuth: function(Authentication){
           return Authentication.requireAuth();

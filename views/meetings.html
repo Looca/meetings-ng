@@ -1,0 +1,26 @@
+<section class="card login col-xs-12 col-md-4 col-md-offset-4">
+	<h1>Add a meeting</h1>
+	<p>Type a meeting name and hit +</p>
+
+	<form class="form" name="addmeeting" ng-submit="addMeeting()" novalidate>
+
+<div class="form-group">
+	
+	<input type="text" name="meetingname" placeholder="meeting name" ng-model="meetingname" ng-required="true"></input>
+
+</div>	
+
+<button type="submit" class="btn" ng-disabled="addmeeting.$invalid">+</button>
+
+	</form>
+
+
+
+	<h2>Your meetings</h2>
+	<div class="meetings" ng-repeat="(key, meeting) in meetings">
+		<button class="btn" ng-click="deleteMeeting(key)">X</button>
+		<a class="btn" href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}">check-in</a>
+<span class="text">{{meeting.name}}</span>
+
+	</div>
+</section>

@@ -4,9 +4,12 @@
 
   </div>
   <p class="navbar-text pull-right" ng-show="currentUser" ng-controller="RegistrationController">Hi {{currentUser.firstname}},
+      <a ng-show="currentUser" ng-href="#/meetings">Meetings <span ng-show="howManyMeetings" class="badge">{{howManyMeetings}}</span>,</a>
     <a ng-href="#/login" ng-click="logout()">Logout</a>
+
   </p>
       <ul class="nav navbar-nav navbar-right pull-right">
+
         <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
         <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
       </ul>
