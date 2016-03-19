@@ -18,9 +18,20 @@
 
 	<h2>Your meetings</h2>
 	<div class="meetings" ng-repeat="(key, meeting) in meetings">
-		<button class="btn" ng-click="deleteMeeting(key)">X</button>
-		<a class="btn" href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}">check-in</a>
-<span class="text">{{meeting.name}}</span>
+
+		<button class="btn btn-danger" ng-click="deleteMeeting(key)">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		</button>
+
+		<a class="btn btn-success" href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}">
+			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+		</a>
+
+		<a class="btn btn-info" href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}/checkinsList">
+		<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+		</a>
+
+		<span class="text">{{meeting.name}}</span>
 
 	</div>
 </section>
